@@ -1,0 +1,328 @@
+ <!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>roma tour</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://images.pexels.com/photos/3037096/pexels-photo-3037096.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #ffffff;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .language-selector {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    .lang-btn {
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .flags {
+      margin-top: 10px;
+      display: none;
+      background-color: #1e1f3a;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .flag {
+      width: 40px;
+      margin: 5px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .flag:hover {
+      transform: scale(1.2);
+    }
+
+    header {
+  background-color: transparent;
+  color: white;
+  padding: 20px 0;
+  position: relative;
+}
+
+
+
+
+   header h1 {
+  margin: 0;
+  text-align: center;
+  color: gold;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+      margin: 10px 0 0 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 25px;
+      transition: background-color 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #005fa3;
+    }
+
+    section {
+  padding: 40px 0;
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+    
+
+    .section-gray {
+  background: transparent;
+}
+
+
+    section h2 {
+      margin-top: 0;
+      color: #00aced;
+    }
+
+    section p {
+      font-size: 1.1em;
+    }
+
+    footer {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 30px;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+  background-color: rgba(0, 0, 0, 0.5); /* biraz şeffaflık kalabilir istersen */
+  border-radius: 15px;
+  width: 180px;
+  text-align: center;
+  padding: 15px;
+}
+
+    
+
+    .card img {
+      width: 100%;
+      height: 120px;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+
+    .card button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #0077cc;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+#home {
+  background-image: url('https://images.pexels.com/photos/3037096/pexels-photo-3037096.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: transparent;
+}
+
+      
+}
+.tour-table {
+  margin: 20px auto;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 15px;
+  width: 300px;
+  color: white;
+  text-align: center;
+}
+
+.tour-img {
+  width: 100%;
+  border-radius: 15px;
+  object-fit: cover;
+  height: 180px;
+}
+
+    
+  </style> 
+
+</head>
+<body>
+  <div class="language-selector">
+    <button class="lang-btn" onclick="toggleFlags()">Ülkenizi Seçiniz</button>
+    <div class="flags" id="flagContainer">
+      <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe" class="flag" onclick="setLanguage('tr')">
+      <img src="https://flagcdn.com/w40/gb.png" alt="İngilizce" class="flag" onclick="setLanguage('en')">
+      <img src="https://flagcdn.com/w40/us.png" alt="İngilizce" class="flag" onclick="setLanguage('en')">
+      <img src="https://flagcdn.com/w40/fr.png" alt="Fransızca" class="flag" onclick="setLanguage('fr')">
+    </div>
+  </div>
+
+  <header>
+    <div class="container">
+      <h1 id="title">roma tour</h1>
+      <nav>
+        <ul>
+          <li><a href="#home" id="nav-home">Ana Sayfa</a></li>
+          <li><a href="#about" id="nav-about">Hakkında</a></li>
+          <li><a href="#services" id="nav-services">Hizmetler</a></li>
+          <li><a href="#contact" id="nav-contact">İletişim</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+<section id="daily-tours">
+  <div class="container">
+    <table class="tour-table">
+      <tr>
+        <td>
+   <div class="card">
+  <img src="https://images.pexels.com/photos/2590292/pexels-photo-2590292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Yat Turu">
+  <p>Günübirlik Yat Turu - 900 TL<br>12:00 - 17:00</p>
+</div>
+       
+        </td>
+      </tr>
+    </table>
+
+    <table class="tour-table">
+      <tr>
+        <td>
+         <div class="card">
+  <img src="https://images.pexels.com/photos/19985028/pexels-photo-19985028/free-photo-of-deniz-kent-sehir-gun-batimi.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Yat Turu">
+  <p>Günübirlik Yat Turu - 700 TL<br>12:00 - 17:00</p>
+</div>
+>
+        </td>
+      </tr>
+    </table>
+
+    <table class="tour-table">
+      <tr>
+        <td>
+          <img src="https://images.pexels.com/photos/19985028/pexels-photo-19985028/free-photo-of-deniz-kent-sehir-gun-batimi.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Tur 3" class="tour-img">
+          <p>Günübirlik - 500 TL<br>Saat 12:00 - 17:00</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+  
+  
+
+  
+
+  
+
+  
+
+  <footer>
+    <p>&copy; 2025 roma tour. Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script>
+    function toggleFlags() {
+      const flags = document.getElementById('flagContainer');
+      flags.style.display = flags.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function setLanguage(lang) {
+      const translations = {
+        en: {
+          'nav-home': 'Home', 'nav-about': 'About', 'nav-services': 'Services', 'nav-contact': 'Contact',
+          'welcome-heading': 'Welcome', 'welcome-text': 'This is an international tour booking site. Please select your country.',
+          'about-heading': 'About Us', 'about-text': 'Access ship, rafting, and tour organizations in your preferred countries.',
+          'services-heading': 'Services', 'services-text': 'Cruise tours, rafting events, and guided tours.',
+          'contact-heading': 'Contact', 'contact-text': 'Please fill out the contact form to reach us.',
+          'btn-cruise': 'Cruise Tours', 'btn-rafting': 'Rafting Tours', 'btn-safari': 'Safari Tours', 'btn-world': 'World Tours', 'btn-turkey': 'Turkey Tours'
+        },
+        fr: {
+          'nav-home': 'Accueil', 'nav-about': 'À propos', 'nav-services': 'Services', 'nav-contact': 'Contact',
+          'welcome-heading': 'Bienvenue', 'welcome-text': 'Site de réservation de tours internationaux, veuillez choisir votre pays.',
+          'about-heading': 'À propos de nous', 'about-text': 'Accédez à des croisières, activités de rafting et tours dans vos pays préférés.',
+          'services-heading': 'Services', 'services-text': 'Croisières, rafting et organisations de voyages.',
+          'contact-heading': 'Contact', 'contact-text': 'Veuillez remplir le formulaire de contact pour nous joindre.',
+          'btn-cruise': 'Croisières', 'btn-rafting': 'Rafting', 'btn-safari': 'Safari', 'btn-world': 'Tours du Monde', 'btn-turkey': 'Tours de Turquie'
+        },
+        tr: {
+          'nav-home': 'Ev', 'nav-about': 'Hakkında', 'nav-services': 'Hizmetler', 'nav-contact': 'Temas Etmek',
+          'welcome-heading': 'Hoş Geldiniz', 'welcome-text': 'Uluslararası tur rezervasyon sitesi, lütfen ülkenizi seçin.',
+          'about-heading': 'Hakkımda', 'about-text': 'Tercih ettiğiniz ülkelerde bulunan gemi, rafting ve tur organizasyonlarına erişin.',
+          'services-heading': 'Hizmetler', 'services-text': 'Gemi turları, rafting etkinlikleri ve tur organizasyonları.',
+          'contact-heading': 'Temas Etmek', 'contact-text': 'Bize ulaşmak için lütfen iletişim formunu doldurun.',
+          'btn-cruise': 'Gemi Turları', 'btn-rafting': 'Rafting Turları', 'btn-safari': 'Safari Turları', 'btn-world': 'Dünya Turları', 'btn-turkey': 'Türkiye Turları'
+        }
+      };
+
+      const selected = translations[lang];
+      for (const id in selected) {
+        const element = document.getElementById(id);
+        if (element) {
+          if (element.tagName === 'BUTTON') {
+            element.textContent = selected[id];
+          } else {
+            element.textContent = selected[id];
+          }
+        }
+      }
+      toggleFlags();
+    }
+  </script>
+</body>
+</html>                           
